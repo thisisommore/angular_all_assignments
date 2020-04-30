@@ -1,1 +1,9 @@
-<p>gamecontrol works!</p>
+<div class="row">
+    <div class="col-xs-12">
+    <button class="btn" (click)="OnStartTimerCalled()">Start Game</button>
+    <button class="btn" (click)="OnStopTimerCalled()">Stop Game</button>
+    </div>
+    <app-even *ngFor="let a of evenArr">Event no is {{a}}</app-even>
+    <app-odd *ngFor="let a of oddArr">Odd no is {{a}}</app-odd>
+</div>
+
