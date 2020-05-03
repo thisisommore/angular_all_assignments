@@ -1,12 +1,17 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-8 col-md-offset-2">
-      <app-active-users
-        [users]="activeUsers"
-        (userSetToInactive)="onSetToInactive($event)"></app-active-users>
-      <app-inactive-users
-        [users]="inactiveUsers"
-        (userSetToActive)="onSetToActive($event)"></app-inactive-users>
+      <app-active-users></app-active-users>
+      <app-inactive-users></app-inactive-users>
+          <div *ngIf="countData.activeTimesChanged || countData.inactiveTimesChanged">
+                <hr>
+                <br>
+                <h4>Countdown of active changes {{  countData.activeTimesChanged }}</h4>
+                <br>
+                <h4>Countdown of inactive changes {{  countData.inactiveTimesChanged }}</h4><br>
+                <hr>
+          </div>
     </div>
     <!--
       Optimize this app by adding a UsersService which manages the active and inactive users.
