@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
@@ -13,6 +14,28 @@
            Upon submitting the form, you should simply print the Value of the Form to the Console.
            Optionally, display it in your template.
       -->
+      <h4>Form</h4>
+      <hr>
+      <label for="email">Enter Email</label>
+    <form #f=ngForm (ngSubmit)="OnSubmit(f)">
+      <input class="form-control" name="email" type="email" ngModel 
+      email required #email="ngModel">
+      <br>
+      <p *ngIf="!email.valid && email.touched">Enter valid email address</p>
+
+      <select class="form-control" [ngModel]="default" name="suscribtion">
+        <option value="basic">Basic</option>
+        <option value="advanced">Advanced</option>
+        <option value="pro">Pro</option>
+      </select>
+
+      <br>
+
+      <input class="form-control" name="password" type="text" ngModel #pass="ngModel" required placeholder="Password">
+      <p *ngIf="!pass.valid && pass.touched">Password field cannot be blank</p>
+      <br>
+      <button type="submit" class="btn btn-success" [disabled]="!f.valid">Submit</button>
+    </form>
     </div>
   </div>
 </div>
