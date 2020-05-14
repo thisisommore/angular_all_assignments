@@ -20,8 +20,10 @@
     <form #f=ngForm (ngSubmit)="OnSubmit(f)">
       <input class="form-control" name="email" type="email" ngModel 
       email required #email="ngModel">
+      <div class="has-error">
+      <p class="help-block has-error" *ngIf="!email.valid && email.touched">Enter valid email address</p>
+      </div>
       <br>
-      <p *ngIf="!email.valid && email.touched">Enter valid email address</p>
 
       <select class="form-control" [ngModel]="default" name="suscribtion">
         <option value="basic">Basic</option>
@@ -30,9 +32,13 @@
       </select>
 
       <br>
+      <label for="password">Enter Password</label>
 
       <input class="form-control" name="password" type="text" ngModel #pass="ngModel" required placeholder="Password">
-      <p *ngIf="!pass.valid && pass.touched">Password field cannot be blank</p>
+      <div class="has-error">
+      <p class="help-block"*ngIf="!pass.valid && pass.touched">Password field cannot be blank</p>
+      <p class="help-block" *ngIf="!f.valid && f.touched">Invalid form please check all fields</p>
+      </div>
       <br>
       <button type="submit" class="btn btn-success" [disabled]="!f.valid">Submit</button>
     </form>
