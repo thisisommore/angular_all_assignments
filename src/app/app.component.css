@@ -1,3 +1,8 @@
 .container {
   margin-top: 30px;
 }
+
+input.ng-invalid.ng-dirty
+{
+  border: solid red 1px;
+}

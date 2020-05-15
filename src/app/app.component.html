@@ -1,3 +1,5 @@
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
@@ -14,6 +16,28 @@
 
           Upon submitting the form, simply print the value to the console
       -->
+      <h4>Project Form</h4>
+      <hr>
+      <form [formGroup]="formJS" (ngSubmit)="onSubmit()">
+      <label class="text-muted" for="ProjectName">Project Name</label>
+        <input class="form-control" name="ProjectName" formControlName="ProjectName">
+        <br>
+
+      <label class="text-muted" for="ProjectMail">Project Mail</label>
+        <input class="form-control" type="email" name="ProjectMail" formControlName="ProjectMail">
+        <br>
+        <label for="projectStatus" class="text-muted">Select Project Status</label>
+        <select class="form-control" name="projectStatus" formControlName="ProjectStatus">
+          <option value="stable">Stable</option>
+          <option value="critical">Critical</option>
+          <option value="finished">Finished</option>
+
+        </select>
+        <br>
+        <button class="btn btn-success">Subbmit</button>
+      
+    </form>
     </div>
+    
   </div>
 </div>
