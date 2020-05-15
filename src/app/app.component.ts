@@ -1,5 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,15 +6,4 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
-default = 'advanced';
-OnSubmit(f)
-{
-  console.log("Email is",f.value.email);
-  console.log("Package is",f.value.suscribtion);
-  console.log("Password is",f.value.password);
-  f.reset();
-
-}
-
 }

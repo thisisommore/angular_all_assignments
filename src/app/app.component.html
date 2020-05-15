@@ -1,47 +1,19 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-      <!-- Add a Form with the following Inputs (and Validators)
-           1) Mail address (should not be empty and should be an email address)
-           2) A Dropdown which allows the user to select from three different Subscriptions ("Basic", "Advanced", "Pro")
-              Set "Advanced" as Default
-           3) A Password field (should not be empty)
-           4) A Submit Button
+      <!--
+          Create a Form with the following Controls and Validators
+          1) Project Name (should not be empty)
+          2) Mail (should not be a empty and a valid email)
+          3) Project Status Dropdown, with three values: 'Stable', 'Critical', 'Finished'
+          4) Submit Button
 
-           Display a warning message if the Form is invalid AND was touched. Display a warning message below each input if it's invalid.
+          Add your own Validator which doesn't allow "Test" as a Project Name
 
-           Upon submitting the form, you should simply print the Value of the Form to the Console.
-           Optionally, display it in your template.
+          Also implement that Validator as an async Validator (replace the other one)
+
+          Upon submitting the form, simply print the value to the console
       -->
-      <h4>Form</h4>
-      <hr>
-      <label for="email">Enter Email</label>
-    <form #f=ngForm (ngSubmit)="OnSubmit(f)">
-      <input class="form-control" name="email" type="email" ngModel 
-      email required #email="ngModel">
-      <div class="has-error">
-      <p class="help-block has-error" *ngIf="!email.valid && email.touched">Enter valid email address</p>
-      </div>
-      <br>
-
-      <select class="form-control" [ngModel]="default" name="suscribtion">
-        <option value="basic">Basic</option>
-        <option value="advanced">Advanced</option>
-        <option value="pro">Pro</option>
-      </select>
-
-      <br>
-      <label for="password">Enter Password</label>
-
-      <input class="form-control" name="password" type="text" ngModel #pass="ngModel" required placeholder="Password">
-      <div class="has-error">
-      <p class="help-block"*ngIf="!pass.valid && pass.touched">Password field cannot be blank</p>
-      <p class="help-block" *ngIf="!f.valid && f.touched">Invalid form please check all fields</p>
-      </div>
-      <br>
-      <button type="submit" class="btn btn-success" [disabled]="!f.valid">Submit</button>
-    </form>
     </div>
   </div>
 </div>
