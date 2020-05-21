@@ -23,11 +23,13 @@ export class AppComponent implements OnInit {
     // Send Http request
     this.http
       .post<{ name: string }>(
-        'https://ng-complete-guide-c56d3.firebaseio.com/posts.json',
+        'https://angularmyapp-7dc24.firebaseio.com/posts.json',
         postData
       )
       .subscribe(responseData => {
         console.log(responseData);
+    this.fetchPosts();
+
       });
   }
 
@@ -38,13 +40,18 @@ export class AppComponent implements OnInit {
 
   onClearPosts() {
     // Send Http request
+    this.http.delete('https://angularmyapp-7dc24.firebaseio.com/posts.json').subscribe(
+      ()=>{
+        this.fetchPosts();
+      }
+    )
   }
 
   private fetchPosts() {
     this.isFetching = true;
     this.http
       .get<{ [key: string]: Post }>(
-        'https://ng-complete-guide-c56d3.firebaseio.com/posts.json'
+        'https://angularmyapp-7dc24.firebaseio.com/posts.json'
       )
       .pipe(
         map(responseData => {
